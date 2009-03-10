@@ -1,0 +1,53 @@
+## Color settings
+## Xdefaults file - based off of Prof. Jeff Yarger's Xdefaults (http://yarger.asu.edu/NMR/Xdefaults.html)
+xterm*Background:               gray15
+xterm*Foreground:               Orange
+xterm*borderColor:              LightBlue
+xterm*borderWidth:              5
+xterm*cursorColor:              LightBlue
+xterm*Curses:                   True
+xterm*scrollbar*thickness:      10
+xterm*scrollbar*color:          red
+xterm*ScrollBar:                True
+xterm*scrollBar:                on
+xterm*rightScrollBar:           true
+xterm*SaveLines:                1500
+xterm*VisualBell:               False
+xterm*Font:                     *courier-medium-r-*-120-*
+
+
+## TERMINAL KEY SETTINGS
+## Adjust to OSX Terminal.app behaviour
+*VT100.translations: #override\
+<Key>Prior: scroll-back(1,pages) \n\
+<Key>Next: scroll-forw(1,pages)\n\
+Meta <Key> K: send-signal(int) clear-saved-lines() \n\
+Meta <Key> P: print() \n\
+Meta <Key> minus: smaller-vt-font() \n\
+Meta <Key> KP_Subtract: smaller-vt-font() \n\
+Meta <Key> plus: larger-vt-font() \n\
+Meta <Key> KP_Add: larger-vt-font() \n\
+Meta <Key> C: select-cursor-start() \
+select-cursor-end(PRIMARY, CUT_BUFFER0) \n\
+Meta <Key> V: insert-selection(PRIMARY, CUT_BUFFER0) \n\
+Meta <Key> M: iconify() \n\
+
+
+## EXTRA SETTINGS FOR XAW SCROLLBAR
+## see /usr/X11R6/include/X11/Xaw/Scrollbar.h
+## for full reference of available recources
+*Scrollbar.background: gray50
+*Scrollbar.foreground: gray50
+*Scrollbar.borderWidth: 0
+*Scrollbar.shadowWidth: 0
+*Scrollbar.thickness: 14
+*Scrollbar.minimumThumb: 20
+*Scrollbar.backgroundPixmap: gradient:horizontal?dimension=14&start=gray80&end=white
+*Scrollbar.borderPixmap: gradient:horizontal?dimension=14&start=white&end=grey80
+
+*Scrollbar.translations: #override\
+<Btn2Down>: StartScroll(Forward) \n\
+<Btn1Down>: StartScroll(Continuous) MoveThumb() NotifyThumb() \n\
+<Btn3Down>: StartScroll(Backward) \n\
+<Btn1Motion>: MoveThumb() NotifyThumb() \n\
+<BtnUp>: NotifyScroll(Proportional) EndScroll()
